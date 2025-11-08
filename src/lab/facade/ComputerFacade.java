@@ -31,9 +31,20 @@ cpu.execute();
 System.out.println("Facade: computer started\n");
 }
 public void shutdown() {
-System.out.println("Facade: shutting down computer");
-// In a real system you'd order components gracefully
-System.out.println("Facade: power off\n");
+		System.out.println("Facade: shutting down computer");
+		// Print a small metrics/report about subsystem activity
+		int memWrites = memory.getWriteCount();
+		int hdReads = 0;
+		if (hd instanceof Hdd) {
+			hdReads = ((Hdd) hd).getReadCount();
+		} else if (hd instanceof Ssd) {
+			hdReads = ((Ssd) hd).getReadCount();
+		} else if (hd instanceof HardDrive) {
+			hdReads = ((HardDrive) hd).getReadCount();
+		}
+		System.out.println(System.currentTimeMillis() + " | Facade report: Memory writes=" + memWrites + ", HD reads=" + hdReads);
+		// In a real system you'd order components gracefully
+		System.out.println("Facade: power off\n");
 }
 
 	/**

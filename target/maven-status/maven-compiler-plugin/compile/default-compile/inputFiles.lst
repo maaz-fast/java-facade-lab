@@ -6,4 +6,5 @@
 /workspaces/java-facade-lab/src/lab/facade/Main.java
 /workspaces/java-facade-lab/src/lab/facade/Memory.java
 /workspaces/java-facade-lab/src/lab/facade/Ssd.java
+/workspaces/java-facade-lab/src/test/java/lab/facade/ComputerFacadeManualTest.java
 /workspaces/java-facade-lab/src/test/java/lab/facade/ComputerFacadeTest.java

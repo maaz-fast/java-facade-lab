@@ -1,0 +1,33 @@
+@startuml
+' stereotypes requested: <<client>>, <<facade>>
+class Main <<client>> {
+    +main(args)
+}
+
+class ComputerFacade <<facade>> {
+    +start()
+    +shutdown()
+    +sleep()
+    +wake()
+}
+
+class Cpu <<subsystem>> {
+    +freeze()
+    +jump(position)
+    +execute()
+}
+
+class Memory <<subsystem>> {
+    +load(position, data)
+}
+
+class HardDrive <<subsystem>> {
+    +read(lba, size)
+}
+
+' relationships
+Main --> ComputerFacade : uses
+ComputerFacade *-- Cpu : contains
+ComputerFacade *-- Memory : contains
+ComputerFacade *-- HardDrive : contains
+@enduml
